@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 110">
+  <!-- Top curved bar - smooth transition from flat middle to angled ends -->
+  <path fill="none" stroke="#67D6E6" stroke-width="10" stroke-linecap="round"
+        d="M5 10 C16 13 36 20 50 20 C64 20 84 13 95 10"/>
+  <!-- Bottom curved bar - smooth transition from flat middle to angled ends -->
+  <path fill="none" stroke="#67D6E6" stroke-width="10" stroke-linecap="round"
+        d="M5 100 C16 97 36 90 50 90 C64 90 84 97 95 100"/>
+  <!-- Left vertical bar with rounded ends -->
+  <rect x="33" y="16" width="9" height="78" rx="4.5" fill="#67D6E6"/>
+  <!-- Right vertical bar with rounded ends -->
+  <rect x="58" y="16" width="9" height="78" rx="4.5" fill="#67D6E6"/>
+</svg>

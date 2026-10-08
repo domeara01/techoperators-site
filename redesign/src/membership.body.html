@@ -1,0 +1,54 @@
+<main class="wrap">
+  <div class="page">
+    <section class="aside" aria-labelledby="h1">
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span>For operators</div>
+      <h1 id="h1"><span class="mask"><span>Apply for</span></span><span class="mask"><span><span class="hl-mark">membership.</span></span></span></h1>
+      <p class="lede">We are a group of senior leaders and founders in the technology sector. Our backgrounds range from sales and marketing to engineering, operations and legal.</p>
+      <p>We want to contribute to the next wave of innovation, and believe that investing our time, energy and expertise, as well as funds, can have a material impact on the Irish technology ecosystem.</p>
+      <h2>We're looking for people who</h2>
+      <ul class="ticks">
+        <li>are Ireland-based senior leaders in the technology sector</li>
+        <li>have built and led businesses as they grow internationally</li>
+        <li>enjoy sharing that experience with emerging leaders</li>
+        <li>want to invest in emerging technology companies from Irish-based startups</li>
+      </ul>
+    </section>
+
+    <section class="card" id="apply" aria-labelledby="h-form">
+      <div class="card__head">
+        <h2 id="h-form">Membership application</h2>
+      </div>
+      <p class="notice"><span><strong>Next cohort intake: October 2026.</strong> Tech Operators' strength lies in its diversity (background, expertise, gender and more) and its intimacy. We are a small group, so even with the best of intentions we may not be able to welcome every applicant at the time they apply. Please be patient with us.</span></p>
+      <form name="membership-application" method="POST" action="{{THANKS}}" data-netlify="true" netlify-honeypot="company_fax">
+        <input type="hidden" name="form-name" value="membership-application">
+        <p class="hp"><label>Leave this empty <input name="company_fax" tabindex="-1" autocomplete="off"></label></p>
+        <div class="two">
+          <div class="field"><label for="m-first">First name</label><input type="text" id="m-first" name="first_name" autocomplete="given-name"></div>
+          <div class="field"><label for="m-last">Last name</label><input type="text" id="m-last" name="last_name" autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label for="m-email">Email <span class="req">(required)</span></label><input type="email" id="m-email" name="email" required autocomplete="email"></div>
+        <div class="field"><label for="m-li">LinkedIn profile</label><input type="text" id="m-li" name="linkedin" placeholder="https://www.linkedin.com/in/" inputmode="url"></div>
+        <fieldset class="field"><legend>What prompted you to apply to Tech Operators?</legend><span class="hint">Tick all that apply.</span>
+          <div class="checks">
+            <label><input type="checkbox" name="motivation" value="Contribute to the Irish startup ecosystem"> I want to contribute to the Irish startup ecosystem</label>
+            <label><input type="checkbox" name="motivation" value="Learn more about angel investing"> To learn more about angel investing</label>
+            <label><input type="checkbox" name="motivation" value="Support under-represented founders"> To support under-represented founders</label>
+            <label><input type="checkbox" name="motivation" value="Start impact investing"> To start impact investing (tech for good, climate and so on)</label>
+            <label><input type="checkbox" name="motivation" value="Heard about us from a member"> I heard about Tech Operators from one of our members</label>
+          </div></fieldset>
+        <fieldset class="field"><legend>Have you angel invested in the past?</legend><span class="hint">We invite all new members to our angel onboarding sessions.</span>
+          <div class="pills"><label><input type="radio" name="angel_before" value="Yes"> Yes</label><label><input type="radio" name="angel_before" value="No"> No</label></div></fieldset>
+        <fieldset class="field"><legend>Are you a member of HBAN?</legend><span class="hint">HBAN connects individual angels and syndicates to startups across the island of Ireland.</span>
+          <div class="pills"><label><input type="radio" name="hban_member" value="Yes"> Yes</label><label><input type="radio" name="hban_member" value="No"> No</label></div></fieldset>
+        <div class="field"><label for="m-amt">How much would you like to invest in the next three years?</label>
+          <select id="m-amt" name="investment_intent"><option value="">Select an option</option><option>€50k–100k</option><option>€100k–200k</option><option>More than €200k</option></select></div>
+        <div class="field"><label for="m-msg">Message</label><textarea id="m-msg" name="message"></textarea></div>
+        <div class="checks"><label><input type="checkbox" name="newsletter" value="yes"> Send me news and updates from Tech Operators</label></div>
+        <div class="submit">
+          <button class="btn btn--ink" type="submit">Send application <span class="ar" aria-hidden="true">→</span></button>
+          <p class="fine">We use your details only to consider your application. See our <a href="{{PRIVACY}}">privacy policy</a>.</p>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>

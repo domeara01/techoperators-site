@@ -1,0 +1,12 @@
+/* ---------- shared: inner pages (For startups, Membership) ---------- */
+.nav a[aria-current="page"]{background-size:100% 1px}
+.mnav a[aria-current="page"]{color:var(--muted)}
+.page-hero{display:flex;flex-direction:column;gap:40px;padding-block:clamp(48px,8vw,104px) clamp(24px,4vw,48px)}
+.page-hero__text{display:flex;flex-direction:column;gap:28px;max-width:880px}
+.page-hero h1{font-size:clamp(40px,5.4vw,80px);line-height:.98;letter-spacing:-.035em}
+.page-hero__lede{max-width:56ch;font-size:clamp(17px,1.5vw,20px);color:var(--body)}
+.cards--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1000px){.cards--3{grid-template-columns:minmax(0,1fr)}}
+.help + .help{padding-top:0}
+.btn--ink{background:var(--ink);color:var(--ground)}
+.btn--ink:hover{box-shadow:0 14px 28px -14px rgba(17,46,35,.55)}

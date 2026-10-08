@@ -1,0 +1,17 @@
+# Member directory and editor (moved from site root to /members/)
+/edit                       /edit.html              200
+/members/edit               /edit                   301
+/members                    /members/               301
+
+# Old Squarespace URLs
+/reach-out                  /apply                  301
+/application-form           /membership#apply       301
+/privacypolicy              /privacy-policy         301
+/member-profiles            /members/               301
+/pitch-to-tech-operators    /apply                  301
+/home-1                     /                       301
+/home-1-1                   /                       301
+/startups-1                 /startups               301
+/operating-policy-1         /operating-policy       301
+/cart                       /                       301
+/meitheal                   /meitheal-principles    301

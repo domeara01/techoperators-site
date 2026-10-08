@@ -1,0 +1,426 @@
+<title>Tech Operators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: light ground, dark-green ink; orange only on founder CTAs; logo green only as small signals. Motion: one opening moment, one quiet ambient detail, small responses to scroll and hover. */
+:root{
+  --ground:#FBFCFA;
+  --mist:#EFF6FA;
+  --white:#FFFFFF;
+  --ink:#112E23;
+  --body:#3B4F4A;
+  --muted:#56686A;
+  --line:rgba(17,46,35,.10);
+  --line-strong:rgba(17,46,35,.16);
+  --accent:#81E76D;
+  --cta:#FF8732;
+  --cta-glow:rgba(204,92,20,.5);
+  --on-dark:#EFF6FA;
+  --on-dark-soft:#C9D8D6;
+  --scrim:rgba(17,46,35,.92);
+  --font:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.76,0,.24,1);
+  --gutter:clamp(16px,5vw,80px);
+  --max:1280px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:calc(var(--max) + 2 * var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+section[id]{scroll-margin-top:96px}
+main{overflow-x:clip}
+
+/* ---------- buttons & links (motion 08) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;background:var(--cta);color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;white-space:nowrap;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px -14px var(--cta-glow)}
+.btn:active{transform:translateY(0)}
+.btn--sm{min-height:44px;padding:0 20px;font-size:15px}
+.ar{display:inline-block;transition:transform .5s var(--ease)}
+.btn:hover .ar,.link:hover .ar{transform:translateX(4px)}
+.link{font-weight:600;text-decoration:none;padding-bottom:3px;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .6s var(--ease)}
+.link:hover{background-size:100% 1px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+
+/* ---------- header (motion 11) ---------- */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-inline:var(--gutter);transition:padding .6s var(--ease)}
+.hdr__bar{max-width:var(--max);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;padding:0;border-radius:0;border-bottom:1px solid var(--line);background:rgba(251,252,250,0);transition:height .6s var(--ease),padding .6s var(--ease),border-radius .6s var(--ease),background-color .6s var(--ease),box-shadow .6s var(--ease),border-color .6s var(--ease),transform .6s var(--ease)}
+.hdr__logo img{height:36px;width:auto;transition:height .6s var(--ease)}
+.hdr.is-condensed{padding-top:12px}
+.hdr.is-condensed .hdr__bar{height:60px;padding:0 8px 0 20px;border-radius:999px;border-color:transparent;background:rgba(255,255,255,.86);box-shadow:0 14px 36px -20px rgba(17,46,35,.45);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2)}
+.hdr.is-condensed .hdr__logo img{height:28px}
+.nav{display:flex;align-items:center;gap:36px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;padding-bottom:2px;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .6s var(--ease)}
+.nav a:hover{background-size:100% 1px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0}
+.menu-btn span{width:16px;height:1.5px;background:currentColor;transition:transform .4s var(--ease)}
+.menu-btn[aria-expanded="true"] span:first-child{transform:translateY(3.25px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+.mnav[hidden]{display:none}
+.mnav{max-width:var(--max);margin:8px auto 0;padding:12px;border-radius:24px;background:var(--white);box-shadow:0 20px 40px -24px rgba(17,46,35,.45);display:flex;flex-direction:column}
+.mnav a{padding:14px 12px;font-size:18px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+.mnav a:last-of-type{border-bottom:0}
+.mnav .btn{margin-top:8px}
+@media (max-width:900px){
+  .nav,.hdr .btn--sm{display:none}
+  .menu-btn{display:inline-flex}
+  .hdr__bar{height:68px}
+  .hdr__logo img{height:30px}
+  .hdr.is-condensed .hdr__bar{height:56px;padding:0 6px 0 16px}
+  .hdr.is-condensed .hdr__logo img{height:26px}
+}
+
+/* ---------- hero (motions 01, 03, 04) ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:clamp(40px,7vw,96px);align-items:center;padding-block:clamp(48px,8vw,104px) clamp(64px,9vw,120px)}
+.hero__text{display:flex;flex-direction:column;gap:32px;min-width:0}
+.hero h1{font-size:clamp(38px,4.9vw,72px);line-height:1;letter-spacing:-.035em}
+.mask{display:block;overflow:hidden;padding-bottom:.2em;margin-bottom:-.2em}
+.mask>span{display:block}
+.hero__lede{max-width:44ch;font-size:clamp(17px,1.5vw,20px);color:var(--body)}
+.hero__ctas{display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+.arch-wrap{position:relative;isolation:isolate;width:100%;max-width:480px;aspect-ratio:560/680;margin-inline:auto}
+/* soft light behind the hero photo: the same glow as the directory intro, used here and in the closing panel only */
+.glow{position:absolute;z-index:-1;border-radius:50%;filter:blur(64px);pointer-events:none}
+.glow--g{width:95%;aspect-ratio:1;right:-30%;top:-14%;background:rgba(129,231,109,.30)}
+.glow--m{width:80%;aspect-ratio:1;left:-34%;bottom:-6%;background:rgba(214,234,242,.9)}
+.arch-line{position:absolute;left:-2.857%;right:-2.857%;top:-2.353%;bottom:-2.353%;width:105.714%;height:104.706%;overflow:visible;pointer-events:none}
+.arch-line path.outline{fill:none;stroke:var(--ink);stroke-opacity:.22;stroke-width:1}
+.arch-line .orb{fill:var(--accent)}
+.arch-line .orb-halo{fill:var(--accent)}
+.arch{position:absolute;inset:0;border-radius:999px;overflow:hidden;background:var(--mist)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:58% 50%}
+.chip{position:absolute;left:-8%;bottom:11%;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 12px;background:var(--white);border-radius:999px;box-shadow:0 18px 40px -20px rgba(17,46,35,.4);max-width:calc(100% + 8%)}
+.chip img{width:34px;height:34px;flex:none}
+.chip b{display:block;font-size:14px;font-weight:600;line-height:1.3}
+.chip small{display:block;font-size:13px;color:var(--muted);line-height:1.35}
+@media (max-width:860px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .arch-wrap{max-width:360px}
+  .chip{left:50%;transform:translateX(-50%);bottom:-22px;white-space:nowrap}
+}
+
+/* ---------- proof strip ---------- */
+.proof{border-block:1px solid var(--line)}
+.proof__in{display:flex;align-items:center;gap:16px 48px;padding-block:30px}
+.proof__label{flex:none;font-size:14px;color:var(--muted);white-space:nowrap}
+.marquee{flex:1 1 auto;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+.marquee__track{display:flex;width:max-content}
+.marquee__set{display:flex;flex:none;align-items:center;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);white-space:nowrap;font-size:clamp(18px,1.7vw,22px);font-weight:600;letter-spacing:-.01em;color:var(--muted)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:no-preference){.marquee__track{animation:marquee 65s linear infinite}.marquee:hover .marquee__track{animation-play-state:paused}}
+@media (max-width:700px){.proof__in{flex-direction:column;align-items:stretch;gap:14px;padding-block:24px}}
+
+/* ---------- how we help (motion 06) ---------- */
+.help{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px);padding-block:clamp(88px,10vw,144px) clamp(72px,9vw,128px)}
+.intro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 80px;align-items:end}
+.intro h2,.members__head h2{font-size:clamp(34px,4vw,56px);line-height:1.05}
+.intro p{font-size:clamp(17px,1.4vw,19px);color:var(--body);max-width:52ch}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.cards--three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card__link{align-self:flex-start;margin-top:auto;font-size:15px}
+.intro--top{align-items:start}
+.intro__copy{display:flex;flex-direction:column;gap:18px}
+.intro__copy p{max-width:60ch}
+.help + .help{padding-top:0}
+.card{display:flex;flex-direction:column;gap:18px;padding:28px 26px 36px;border-radius:24px;transition:background-color .6s var(--ease)}
+.card:hover{background:var(--mist)}
+.card .rule{height:1px;background:var(--ink);transform-origin:left}
+.card__n{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.card h3{font-size:26px}
+.card p{font-size:16px;color:var(--body)}
+@media (max-width:1000px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.cards--three{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:700px){.intro{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.cards{grid-template-columns:minmax(0,1fr);gap:0}.card{padding:24px 0 28px;border-radius:0}.card:hover{background:transparent}}
+
+/* ---------- banner ---------- */
+.banner{padding-inline:clamp(12px,2.8vw,40px)}
+.banner__in{position:relative;max-width:1360px;margin-inline:auto;border-radius:clamp(24px,3vw,36px);overflow:hidden;background:var(--ink);min-height:clamp(480px,48vw,640px);display:flex}
+.banner__in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.banner__in::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--scrim) 0%,rgba(17,46,35,.55) 60%,rgba(17,46,35,.2) 100%)}
+.banner__txt{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;gap:48px;padding:clamp(32px,6vw,96px) clamp(24px,5.5vw,80px)}
+.banner h2{max-width:20ch;font-size:clamp(38px,5.4vw,76px);line-height:1.02;letter-spacing:-.035em;color:var(--on-dark)}
+.banner .bl{display:block}
+.banner h2 em{font-style:normal;color:var(--cta)}
+.banner ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;color:var(--on-dark-soft);font-size:16px}
+.banner li{display:flex;align-items:center;gap:24px}
+.banner li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent)}
+@media (max-width:700px){.banner__in::after{background:linear-gradient(180deg,rgba(17,46,35,.35) 0%,var(--scrim) 65%)}.banner__txt{justify-content:flex-end}}
+
+/* ---------- members (motion 09) ---------- */
+.members{display:flex;flex-direction:column;gap:clamp(36px,4vw,56px);padding-block:clamp(88px,10vw,144px) clamp(64px,8vw,120px)}
+.members__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px}
+.members__head h2{max-width:18ch}
+.members__head p{max-width:44ch;font-size:clamp(17px,1.4vw,19px);color:var(--body)}
+.dir-cta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 32px;padding:28px 32px;border-radius:24px;background:var(--mist)}
+.dir-cta p{font-size:17px;color:var(--body);max-width:52ch}
+.dir-cta p b{color:var(--ink);font-weight:600}
+.btn--ghost{background:transparent;border:1px solid var(--ink);color:var(--ink);transition:transform .5s var(--ease),background-color .4s var(--ease),color .4s var(--ease)}
+.btn--ghost:hover{background:var(--ink);color:var(--ground);box-shadow:none}
+.btn--ghost:hover .ar{transform:translate(3px,-3px)}
+@media (max-width:560px){.dir-cta{padding:24px 20px}.dir-cta .btn{width:100%}}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.tile{display:flex;flex-direction:column;gap:16px;text-decoration:none;min-width:0}
+.tile__ph{aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:var(--mist)}
+.tile__ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04) brightness(1.02);transition:filter .9s var(--ease),transform 1.4s var(--ease)}
+.tile:hover .tile__ph img,.tile:focus-visible .tile__ph img{filter:grayscale(0);transform:scale(1.04)}
+.tile__name{align-self:flex-start;font-size:19px;font-weight:600;line-height:1.3;padding-bottom:2px;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .6s var(--ease)}
+.tile:hover .tile__name{background-size:100% 1px}
+.tile__role{font-size:15px;color:var(--muted);margin-top:-10px}
+@media (max-width:900px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}}
+
+/* ---------- closing ---------- */
+.close-wrap{padding-block:clamp(40px,6vw,88px) clamp(64px,8vw,112px)}
+.close{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;padding:clamp(64px,8vw,112px) clamp(24px,5vw,64px);border-radius:clamp(24px,3vw,36px);background:var(--mist)}
+.close .glow--g{width:48%;right:-12%;top:auto;bottom:-55%}
+.close .glow--m{width:40%;left:-10%;bottom:auto;top:-40%;background:rgba(255,255,255,.9)}
+.close img{width:60px;height:60px}
+.close h2{max-width:16ch;font-size:clamp(36px,4.6vw,64px);line-height:1.04;letter-spacing:-.035em}
+.close p{max-width:46ch;font-size:clamp(17px,1.4vw,19px);color:var(--body)}
+.close__ctas{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px 32px}
+.ftr{border-top:1px solid var(--line)}
+.ftr__in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 32px;padding-block:36px;font-size:14px;color:var(--muted)}
+.ftr__in img{height:28px;width:auto}
+.ftr nav{display:flex;flex-wrap:wrap;gap:12px 28px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--ink)}
+.note{font-size:13px;color:var(--muted)}
+
+/* ================= MOTION ================= */
+@keyframes rise{from{transform:translateY(112%)}to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes archIn{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes settle{from{transform:scale(1.16)}to{transform:scale(1)}}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes show{from{opacity:0}to{opacity:1}}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-12%,14%) scale(1.12)}}
+@keyframes driftB{from{transform:translate(0,0) scale(1)}to{transform:translate(14%,-10%) scale(1.08)}}
+@keyframes glowIn{from{opacity:0}to{opacity:1}}
+@keyframes chipIn{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion:no-preference){
+  .m-on .mask>span{animation:rise 1.25s var(--ease) both}
+  .m-on .mask:nth-child(2)>span{animation-delay:.09s}
+  .m-on .mask:nth-child(3)>span{animation-delay:.18s}
+  .m-on .hero .eyebrow{animation:fadeUp 1s var(--ease) both}
+  .m-on .hero__lede{animation:fadeUp 1.1s var(--ease) .45s both}
+  .m-on .hero__ctas{animation:fadeUp 1.1s var(--ease) .6s both}
+  .m-on .arch{animation:archIn 1.7s var(--ease-io) .15s both}
+  .m-on .arch img{animation:settle 2.6s var(--ease) .15s both}
+  .m-on .arch-line path.outline{stroke-dasharray:1;animation:draw 2.4s cubic-bezier(.65,0,.35,1) .9s both}
+  .m-on .arch-line .orbit{animation:show 1s ease 3.1s both}
+  .m-on .chip{animation:chipIn 1s var(--ease) 1.1s both}
+  .m-on .hero .glow--g{animation:glowIn 2.4s ease .6s both,drift 24s ease-in-out 3s infinite alternate}
+  .m-on .hero .glow--m{animation:glowIn 2.4s ease .6s both,driftB 28s ease-in-out 3s infinite alternate}
+  .m-on .close .glow--g{animation:drift 24s ease-in-out infinite alternate}
+  /* scroll reveal: only elements below the fold at load get .pre; content in view is never hidden */
+  .m-on .pre{opacity:0;transform:translateY(18px)}
+  .m-on .pre .rule{transform:scaleX(0)}
+  .m-on .rv{transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+  .m-on .rv .rule{transition:transform 1.4s cubic-bezier(.65,0,.35,1) .1s}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .arch-line .orbit{display:none}
+}
+</style>
+
+<header class="hdr" id="top">
+  <div class="hdr__bar">
+    <a class="hdr__logo" href="#top" aria-label="Tech Operators home"><img src="img/logo-dark.png" alt="tech operators." width="300" height="71"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#how">For startups</a>
+      <a href="{{PORTFOLIO}}" data-nav="portfolio"{{EXT}}>Portfolio</a>
+      <a href="{{DIR}}"{{EXT}}>Members ↗</a>
+    </nav>
+    <a class="btn btn--sm" href="{{APPLY}}"{{EXT}}>Apply as a founder <span class="ar" aria-hidden="true">→</span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
+    <a href="#how">For startups</a>
+    <a href="{{PORTFOLIO}}" data-nav="portfolio"{{EXT}}>Portfolio</a>
+    <a href="{{DIR}}"{{EXT}}>Members ↗</a>
+    <a class="btn" href="{{APPLY}}"{{EXT}}>Apply as a founder <span class="ar" aria-hidden="true">→</span></a>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="h-hero">
+    <div class="hero__text">
+      <h1 id="h-hero">
+        <span class="mask"><span>Advice, connections</span></span>
+        <span class="mask"><span>&amp; investment</span></span>
+        <span class="mask"><span>for ambitious</span></span>
+        <span class="mask"><span>Irish startups.</span></span>
+      </h1>
+      <p class="hero__lede">Tech Operators is a network of experienced industry executives and founders who help early-stage founders scale internationally, through expert advice, warm introductions and angel investment.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="{{APPLY}}"{{EXT}}>Apply as a founder <span class="ar" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="arch-wrap">
+      <span class="glow glow--g" aria-hidden="true"></span><span class="glow glow--m" aria-hidden="true"></span>
+      <div class="arch"><img src="img/meitheal-table.jpg" alt="Tech Operators members around the table at a Meitheal session" width="1500" height="1000"></div>
+      <svg class="arch-line" viewBox="0 0 592 712" preserveAspectRatio="none" aria-hidden="true">
+        <path class="outline" id="pill" pathLength="1" vector-effect="non-scaling-stroke" d="M 296 0.5 A 295.5 295.5 0 0 1 591.5 296 L 591.5 416 A 295.5 295.5 0 0 1 296 711.5 A 295.5 295.5 0 0 1 0.5 416 L 0.5 296 A 295.5 295.5 0 0 1 296 0.5 Z"></path>
+        <g class="orbit">
+          <circle class="orb-halo" r="5" opacity=".5">
+            <animate attributeName="r" values="5;13;5" keyTimes="0;.5;1" dur="3.2s" repeatCount="indefinite"></animate>
+            <animate attributeName="opacity" values=".45;0;.45" keyTimes="0;.5;1" dur="3.2s" repeatCount="indefinite"></animate>
+          </circle>
+          <circle class="orb" r="5"></circle>
+          <animateMotion dur="20s" repeatCount="indefinite" rotate="0"><mpath href="#pill"></mpath></animateMotion>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="proof">
+    <div class="wrap proof__in">
+      <span class="proof__label">Members have built and scaled at</span>
+      <div class="marquee"><div class="marquee__track"><div class="marquee__set"><span>Google</span><span>Meta</span><span>Stripe</span><span>Intercom</span><span>Microsoft</span><span>Salesforce</span><span>Wayflyer</span><span>Docusign</span><span>OpenAI</span><span>Lattice</span><span>Personio</span><span>Oracle</span></div><div class="marquee__set" aria-hidden="true"><span>Google</span><span>Meta</span><span>Stripe</span><span>Intercom</span><span>Microsoft</span><span>Salesforce</span><span>Wayflyer</span><span>Docusign</span><span>OpenAI</span><span>Lattice</span><span>Personio</span><span>Oracle</span></div></div></div>
+    </div>
+  </div>
+
+  <section class="wrap help" aria-labelledby="h-why">
+    <div class="intro intro--top rv">
+      <h2 id="h-why">Why Tech Operators?</h2>
+      <div class="intro__copy">
+        <p>Our network represents years of real-life experience, earned at major multinational companies and successful Irish startups and scaleups. Our members are current and former senior executives at companies including Google, Meta, Salesforce, Intercom, Wayflyer, Stripe, Microsoft, Docusign, OpenAI, Lattice, Personio and Oracle. We've worked across every function from GTM to engineering, finance to operations.</p>
+        <p>But experience only matters if it's put to work. We don't sit on the sidelines. When you work with Tech Operators, you tap into people who've solved similar problems and who'll draw on their experience and open their network to help you solve it.</p>
+        <p>That might mean pitching to our members for angel investment. It might mean a Meitheal: a room of operators focused entirely on a challenge you bring, leaving you with fresh ideas, warm introductions and a clear path forward. Or it might mean an ongoing relationship with a member who's been where you want to go.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap help" id="how" aria-labelledby="h-how">
+    <div class="intro rv">
+      <h2 id="h-how">How we help startups.</h2>
+    </div>
+    <div class="cards cards--three">
+      <article class="card rv"><div class="rule"></div><span class="card__n">01</span><h3>Investment</h3><p>Our members have backed Irish startups like Jentic, Kota, Paygentic, Roamr, Glitch, Peri, Marc and MoveAhead.</p><a class="link card__link" href="{{PORTFOLIO}}"{{EXT}}>See the portfolio <span class="ar" aria-hidden="true">→</span></a></article>
+      <article class="card rv"><div class="rule"></div><span class="card__n">02</span><h3>Mentorship</h3><p>A dedicated member with relevant experience will provide advice and access to the power of our network.</p></article>
+      <article class="card rv" id="meitheal"><div class="rule"></div><span class="card__n">03</span><h3>Meitheal</h3><p>A curated group of members comes together to advise you on how to tackle a specific challenge in your business.</p><a class="link card__link" href="{{PRINCIPLES}}"{{EXT}}>How a Meitheal works <span class="ar" aria-hidden="true">→</span></a></article>
+    </div>
+  </section>
+
+  <section class="banner" aria-labelledby="h-banner">
+    <div class="banner__in">
+      <img src="img/meitheal-room.jpg" alt="" width="1500" height="1000" loading="lazy">
+      <div class="banner__txt rv">
+        <h2 id="h-banner"><span class="bl">Not a fund.</span> <span class="bl">Not passive advisors.</span> Operators who are <em>still in the game.</em></h2>
+        <ul><li>No fees</li><li>No strings attached</li><li>Members invest their own money</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap members" id="board" aria-labelledby="h-members">
+    <div class="members__head rv">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>The board</span>
+        <h2 id="h-members">Meet the board.</h2>
+      </div>
+      <p>Tech Operators is steered by a board drawn from its members.</p>
+    </div>
+    <div class="tiles">
+      <a class="tile rv" href="{{DIR}}#mariamcmenamin"{{EXT}}><div class="tile__ph"><img src="img/m-1.jpg" alt="Maria McMenamin" width="600" height="600" loading="lazy"></div><span class="tile__name">Maria McMenamin</span><span class="tile__role">Go-to-market. Previously Stripe and Pitch.com</span></a>
+      <a class="tile rv" href="{{DIR}}#johncollinsireland"{{EXT}}><div class="tile__ph"><img src="img/m-jc.jpg" alt="John Collins" width="600" height="600" loading="lazy"></div><span class="tile__name">John Collins</span><span class="tile__role">Marketing. Previously Director of Content at Intercom</span></a>
+      <a class="tile rv" href="{{DIR}}#fionnuala-meehan-156231a"{{EXT}}><div class="tile__ph"><img src="img/m-fionnuala.jpg" alt="Fionnuala Meehan" width="600" height="600" loading="lazy"></div><span class="tile__name">Fionnuala Meehan</span><span class="tile__role">Sales and operations. Former Head of Google Ireland</span></a>
+      <a class="tile rv" href="{{DIR}}#niallm"{{EXT}}><div class="tile__ph"><img src="img/m-niall.jpg" alt="Niall Murphy" width="600" height="600" loading="lazy"></div><span class="tile__name">Niall Murphy</span><span class="tile__role">Engineering. Infrastructure, reliability and AI</span></a>
+    </div>
+    <div class="dir-cta rv">
+      <p><b>The full network.</b> Current and former senior operators from companies such as Google, Stripe and Intercom, across every function from go-to-market to engineering and finance.</p>
+      <a class="btn btn--ghost" href="{{DIR}}"{{EXT}}>View the member directory <span class="ar" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="wrap close-wrap" id="join" aria-labelledby="h-join">
+    <div class="close">
+      <span class="glow glow--g" aria-hidden="true"></span><span class="glow glow--m" aria-hidden="true"></span>
+    <img class="rv" src="img/mark.png" alt="" width="80" height="80">
+    <h2 class="rv" id="h-join">Building something ambitious in Ireland?</h2>
+    <p class="rv">Advice, connections and investment from people who've built and scaled real companies. No fees, no strings attached.</p>
+    <div class="close__ctas rv">
+      <a class="btn" href="{{APPLY}}"{{EXT}}>Apply as a founder <span class="ar" aria-hidden="true">→</span></a>
+      <a class="link" href="{{MEMBERSHIP}}"{{EXT}}>Senior operator? Become a member <span class="ar" aria-hidden="true">→</span></a>
+    </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap ftr__in">
+    <img src="img/logo-dark.png" alt="tech operators." width="300" height="71">
+    <nav aria-label="Footer">
+      <a href="{{MEMBERSHIP}}">Membership</a>
+      <a href="{{POLICY}}">Operating policy</a>
+      <a href="{{PRINCIPLES}}">Meitheal principles</a>
+      <a href="{{PRIVACY}}">Privacy policy</a>
+      <a href="https://www.linkedin.com/company/tech-operators/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    {{NOTE}}
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) root.classList.add('m-on');
+
+  // Header condenses after a short scroll
+  var hdr = document.querySelector('.hdr');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      hdr.classList.toggle('is-condensed', window.scrollY > 40);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  var btn = document.getElementById('menuBtn');
+  var panel = document.getElementById('mnav');
+  function setMenu(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    panel.hidden = !open;
+  }
+  btn.addEventListener('click', function () { setMenu(panel.hidden); });
+  panel.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { setMenu(false); btn.focus(); } });
+
+  // Scroll reveal: hide only what is below the fold right now, reveal as it arrives
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  var vh = window.innerHeight || 800;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      var sibs = el.parentElement ? Array.prototype.filter.call(el.parentElement.children, function (c) { return c.classList.contains('rv'); }) : [el];
+      var i = Math.max(0, sibs.indexOf(el));
+      el.style.transitionDelay = (i * 0.08) + 's';
+      el.classList.remove('pre');
+      io.unobserve(el);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  items.forEach(function (el) {
+    if (el.getBoundingClientRect().top > vh * 0.92) {
+      el.classList.add('pre');
+      io.observe(el);
+    }
+  });
+})();
+</script>

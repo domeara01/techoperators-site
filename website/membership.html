@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join Tech Operators | Membership</title>
+<meta name="description" content="Apply to join Tech Operators, a group of Ireland-based senior technology leaders who advise and invest in Irish startups.">
+<meta property="og:title" content="Join Tech Operators | Membership">
+<meta property="og:description" content="Apply to join Tech Operators, a group of Ireland-based senior technology leaders who advise and invest in Irish startups.">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/64db8d77283f3e05c154a4b9/203a866b-3379-4a09-a573-710ee34df966/Logo_WHT.png?format=1500w">
+<link rel="icon" href="/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="staging">Preview of the new techoperators.ie. Not live yet.</div>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="https://images.squarespace-cdn.com/content/v1/64db8d77283f3e05c154a4b9/203a866b-3379-4a09-a573-710ee34df966/Logo_WHT.png?format=500w" alt="Tech Operators" width="170" height="40"></a>
+  <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Main"><a href="/startups">For startups</a><a href="/members/">Members</a><a href="/membership" aria-current=page>Join</a><a class="btn" href="/apply">Apply as a founder</a></nav>
+</div></header>
+<main id="main">
+
+<section class="hero"><div class="wrap split">
+  <div>
+    <h1>Apply for <span class="g">membership</span></h1>
+    <p class="lede">We are a group of senior leaders and founders in the technology sector. Our backgrounds range from sales and marketing to engineering, operations and legal. We want to contribute to the next wave of innovation, and believe that investing our time, energy and expertise, as well as funds, can have a material impact on the Irish technology ecosystem.</p>
+  </div>
+  <div class="prose">
+    <h3>We're looking for people who</h3>
+    <ul>
+      <li>are Ireland-based senior leaders in the technology sector</li>
+      <li>have built and led businesses as they grow internationally</li>
+      <li>enjoy sharing that experience with emerging leaders</li>
+      <li>want to invest in emerging technology companies from Irish-based startups</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="band" id="apply"><div class="wrap">
+  <h2>Membership application</h2>
+  <p class="notice"><strong>Next cohort intake: October 2026.</strong> Tech Operators' strength lies in its diversity (background, expertise, gender and more) and its intimacy. We are a small group, so even with the best of intentions we may not be able to welcome every applicant at the time they apply. Please be patient with us.</p>
+  <form class="form" name="membership-application" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company_fax">
+    <input type="hidden" name="form-name" value="membership-application">
+    <p class="hp"><label>Leave this empty <input name="company_fax" tabindex="-1" autocomplete="off"></label></p>
+    <div class="two">
+      <div class="field"><label for="m-first">First name</label><input type="text" id="m-first" name="first_name" autocomplete="given-name"></div>
+      <div class="field"><label for="m-last">Last name</label><input type="text" id="m-last" name="last_name" autocomplete="family-name"></div>
+    </div>
+    <div class="field"><label for="m-email">Email <span class="req" aria-hidden="true">*</span></label><input type="email" id="m-email" name="email" required autocomplete="email"></div>
+    <div class="field"><label for="m-li">LinkedIn profile</label><input type="text" id="m-li" name="linkedin" placeholder="https://www.linkedin.com/in/" inputmode="url"></div>
+    <fieldset class="field"><legend>What prompted you to apply to Tech Operators?</legend><span class="hint">Tick all that apply.</span>
+      <div class="checks">
+        <label><input type="checkbox" name="motivation" value="Contribute to the Irish startup ecosystem"> I want to contribute to the Irish startup ecosystem</label>
+        <label><input type="checkbox" name="motivation" value="Learn more about angel investing"> To learn more about angel investing</label>
+        <label><input type="checkbox" name="motivation" value="Support under-represented founders"> To support under-represented founders</label>
+        <label><input type="checkbox" name="motivation" value="Start impact investing"> To start impact investing (tech for good, climate and so on)</label>
+        <label><input type="checkbox" name="motivation" value="Heard about us from a member"> I heard about Tech Operators from one of our members</label>
+      </div></fieldset>
+    <fieldset class="field"><legend>Have you angel invested in the past?</legend><span class="hint">We invite all new members to our angel onboarding sessions.</span>
+      <div class="checks"><label><input type="radio" name="angel_before" value="Yes"> Yes</label><label><input type="radio" name="angel_before" value="No"> No</label></div></fieldset>
+    <fieldset class="field"><legend>Are you a member of HBAN?</legend><span class="hint">HBAN connects individual angels and syndicates to startups across the island of Ireland.</span>
+      <div class="checks"><label><input type="radio" name="hban_member" value="Yes"> Yes</label><label><input type="radio" name="hban_member" value="No"> No</label></div></fieldset>
+    <div class="field"><label for="m-amt">How much would you like to invest in the next three years?</label>
+      <select id="m-amt" name="investment_intent"><option value="">Select an option</option><option>€50k–100k</option><option>€100k–200k</option><option>More than €200k</option></select></div>
+    <div class="field"><label for="m-msg">Message</label><textarea id="m-msg" name="message"></textarea></div>
+    <div class="field checks"><label><input type="checkbox" name="newsletter" value="yes"> Send me news and updates from Tech Operators</label></div>
+    <p class="muted" style="font-size:14.5px;margin:0">We use your details only to consider your application. See our <a href="/privacy-policy">privacy policy</a>.</p>
+    <div><button class="btn" type="submit">Send application</button></div>
+  </form>
+</div></section>
+
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div>Tech Operators<br>Advice, connections and investment for Irish startups.</div>
+  <nav aria-label="Footer">
+    <a href="/operating-policy">Operating policy</a>
+    <a href="/meitheal-principles">Meitheal principles</a>
+    <a href="/privacy-policy">Privacy policy</a>
+    <a href="https://www.linkedin.com/company/tech-operators/">LinkedIn</a>
+  </nav>
+</div></footer>
+<script>
+const b=document.querySelector('.menu'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+</script>
+</body>
+</html>

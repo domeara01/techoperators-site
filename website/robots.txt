@@ -1,0 +1,3 @@
+# STAGING. Replace at cutover with: User-agent: *\nAllow: /\nSitemap: https://www.techoperators.ie/sitemap.xml
+User-agent: *
+Disallow: /

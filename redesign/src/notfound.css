@@ -1,0 +1,15 @@
+/* ---------- 404 page (hero shared with legal.css) ---------- */
+.nf-hero .page-hero{padding-bottom:clamp(32px,4vw,56px)}
+.nf{padding-block:0 clamp(72px,9vw,128px)}
+.nf__list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.nf__list a{display:flex;align-items:center;justify-content:space-between;gap:24px;height:100%;padding:clamp(24px,2.6vw,32px);border-radius:24px;background:var(--white);border:1px solid var(--line);text-decoration:none;transition:background-color .6s var(--ease),border-color .6s var(--ease)}
+.nf__list a:hover{background:var(--mist);border-color:transparent}
+.nf__list a:hover .ar{transform:translateX(4px)}
+.nf__t{display:flex;flex-direction:column;gap:4px;min-width:0}
+.nf__t b{font-size:clamp(20px,1.9vw,24px);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.nf__t span{font-size:16px;color:var(--body)}
+.nf__list .ar{font-size:22px;color:var(--ink)}
+.nf__list .is-cta a{background:var(--cta);border-color:transparent}
+.nf__list .is-cta a:hover{background:var(--cta);box-shadow:0 14px 28px -14px var(--cta-glow)}
+.nf__list .is-cta .nf__t span{color:var(--ink)}
+@media (max-width:700px){.nf__list{grid-template-columns:minmax(0,1fr)}}

@@ -1,0 +1,9 @@
+dist/
+.netlify/
+node_modules/
+__pycache__/
+*.pyc
+_bundle.tgz
+.DS_Store
+redesign/*.html
+redesign/members.html

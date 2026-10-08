@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply as a founder | Tech Operators</title>
+<meta name="description" content="Founders: apply to tap into the Tech Operators network for advice, connections and investment.">
+<meta property="og:title" content="Apply as a founder | Tech Operators">
+<meta property="og:description" content="Founders: apply to tap into the Tech Operators network for advice, connections and investment.">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/64db8d77283f3e05c154a4b9/203a866b-3379-4a09-a573-710ee34df966/Logo_WHT.png?format=1500w">
+<link rel="icon" href="/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="staging">Preview of the new techoperators.ie. Not live yet.</div>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="https://images.squarespace-cdn.com/content/v1/64db8d77283f3e05c154a4b9/203a866b-3379-4a09-a573-710ee34df966/Logo_WHT.png?format=500w" alt="Tech Operators" width="170" height="40"></a>
+  <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="nav" id="nav" aria-label="Main"><a href="/startups">For startups</a><a href="/members/">Members</a><a href="/membership">Join</a><a class="btn" href="/apply">Apply as a founder</a></nav>
+</div></header>
+<main id="main">
+
+<section><div class="wrap">
+  <h1>Let's work together</h1>
+  <div class="prose">
+    <p class="lede">Tech Operators is a network of experienced executives and founders who've helped build and scale companies like Google, Stripe and Intercom. We help ambitious Irish startups grow internationally through advice, connections and investment.</p>
+    <p>There's no fee and no catch. Tell us a bit about what you're building and where you're looking for help, and we'll be in touch about the best way to work together, whether that's pitching to our members, joining a Meitheal session, or something more hands-on.</p>
+  </div>
+  <form class="form" name="founder-application" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company_fax">
+    <input type="hidden" name="form-name" value="founder-application">
+    <p class="hp"><label>Leave this empty <input name="company_fax" tabindex="-1" autocomplete="off"></label></p>
+    <div class="two">
+      <div class="field"><label for="f-first">First name</label><input type="text" id="f-first" name="first_name" autocomplete="given-name"></div>
+      <div class="field"><label for="f-last">Last name</label><input type="text" id="f-last" name="last_name" autocomplete="family-name"></div>
+    </div>
+    <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input type="email" id="f-email" name="email" required autocomplete="email"></div>
+    <div class="field"><label for="f-startup">Your startup</label><span class="hint" id="f-startup-h">What you're building and where you'd like help.</span><textarea id="f-startup" name="startup" aria-describedby="f-startup-h"></textarea></div>
+    <div class="field"><label for="f-web">Website</label><input type="text" id="f-web" name="website" placeholder="https://" inputmode="url"></div>
+    <div class="field"><label for="f-ur">Under-represented founder</label><span class="hint" id="f-ur-h">Optional. Tell us if you identify as an under-represented founder.</span><input type="text" id="f-ur" name="under_represented" aria-describedby="f-ur-h"></div>
+    <div class="field"><label for="f-deck">Link to deck</label><input type="text" id="f-deck" name="deck_url" placeholder="https://" inputmode="url"></div>
+    <div class="field"><label for="f-stage">Investment stage</label>
+      <select id="f-stage" name="stage"><option value="">Select an option</option><option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Self-funded</option><option>Friends &amp; family</option><option>Other</option></select></div>
+    <div class="field checks"><label><input type="checkbox" name="newsletter" value="yes"> Send me news and updates from Tech Operators</label></div>
+    <p class="muted" style="font-size:14.5px;margin:0">We use your details only to consider your application and get back to you. See our <a href="/privacy-policy">privacy policy</a>.</p>
+    <div><button class="btn" type="submit">Send application</button></div>
+  </form>
+</div></section>
+
+</main>
+<footer class="site-foot"><div class="wrap">
+  <div>Tech Operators<br>Advice, connections and investment for Irish startups.</div>
+  <nav aria-label="Footer">
+    <a href="/operating-policy">Operating policy</a>
+    <a href="/meitheal-principles">Meitheal principles</a>
+    <a href="/privacy-policy">Privacy policy</a>
+    <a href="https://www.linkedin.com/company/tech-operators/">LinkedIn</a>
+  </nav>
+</div></footer>
+<script>
+const b=document.querySelector('.menu'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+[build]
+  publish = "dist"
+  command = "bash deploy-redesign.sh"
+
+[build.environment]
+  NODE_VERSION = "20"
+  PYTHON_VERSION = "3.11"
+
+[functions]
+  directory = "netlify/functions"

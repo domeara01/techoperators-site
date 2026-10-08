@@ -1,0 +1,45 @@
+<main class="wrap">
+  <div class="page">
+    <section class="aside" aria-labelledby="h1">
+      <div class="eyebrow"><span class="dot" aria-hidden="true"></span>For founders</div>
+      <h1 id="h1"><span class="mask"><span>Let's work</span></span><span class="mask"><span><span class="hl-mark">together.</span></span></span></h1>
+      <p class="lede">Tech Operators is a network of experienced executives and founders who've helped build and scale companies like Google, Stripe and Intercom. We help ambitious Irish startups grow internationally through advice, connections and investment.</p>
+      <p>There's no fee and no catch. Tell us a bit about what you're building and where you're looking for help, and we'll be in touch about the best way to work together.</p>
+      <h2>That could be</h2>
+      <ul class="ticks">
+        <li>Pitching to our members</li>
+        <li>Joining a Meitheal session</li>
+        <li>Something more hands-on</li>
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="h-form">
+      <div class="card__head">
+        <h2 id="h-form">Founder application</h2>
+        <p>Only your email is required. The more you share, the better we can match you.</p>
+      </div>
+      <form name="founder-application" method="POST" action="{{THANKS}}" data-netlify="true" netlify-honeypot="company_fax">
+        <input type="hidden" name="form-name" value="founder-application">
+        <p class="hp"><label>Leave this empty <input name="company_fax" tabindex="-1" autocomplete="off"></label></p>
+        <div class="two">
+          <div class="field"><label for="f-first">First name</label><input type="text" id="f-first" name="first_name" autocomplete="given-name"></div>
+          <div class="field"><label for="f-last">Last name</label><input type="text" id="f-last" name="last_name" autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label for="f-email">Email <span class="req">(required)</span></label><input type="email" id="f-email" name="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-startup">Your startup</label><span class="hint" id="f-startup-h">What you're building and where you'd like help.</span><textarea id="f-startup" name="startup" aria-describedby="f-startup-h"></textarea></div>
+        <div class="two">
+          <div class="field"><label for="f-web">Website</label><input type="text" id="f-web" name="website" placeholder="https://" inputmode="url"></div>
+          <div class="field"><label for="f-deck">Link to deck</label><input type="text" id="f-deck" name="deck_url" placeholder="https://" inputmode="url"></div>
+        </div>
+        <div class="field"><label for="f-stage">Investment stage</label>
+          <select id="f-stage" name="stage"><option value="">Select an option</option><option>Pre-seed</option><option>Seed</option><option>Series A</option><option>Self-funded</option><option>Friends &amp; family</option><option>Other</option></select></div>
+        <div class="field"><label for="f-ur">Under-represented founder</label><span class="hint" id="f-ur-h">Optional. Tell us if you identify as an under-represented founder.</span><input type="text" id="f-ur" name="under_represented" aria-describedby="f-ur-h"></div>
+        <div class="checks"><label><input type="checkbox" name="newsletter" value="yes"> Send me news and updates from Tech Operators</label></div>
+        <div class="submit">
+          <button class="btn" type="submit">Send application <span class="ar" aria-hidden="true">→</span></button>
+          <p class="fine">We use your details only to consider your application and get back to you. See our <a href="{{PRIVACY}}">privacy policy</a>.</p>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>

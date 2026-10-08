@@ -1,0 +1,48 @@
+/* ---------- portfolio page ---------- */
+.pf-hero{position:relative;isolation:isolate;overflow:hidden}
+.pf-hero .glow{inset:0;width:auto;aspect-ratio:auto;border-radius:0;filter:none}
+.pf-hero .glow--g{background:radial-gradient(ellipse 46% 62% at 84% 46%,rgba(129,231,109,.30),rgba(129,231,109,0) 100%)}
+.pf-hero .glow--m{background:radial-gradient(ellipse 40% 60% at 4% 60%,rgba(214,234,242,.85),rgba(214,234,242,0) 100%)}
+.hl-mark{position:relative;display:inline;z-index:0;white-space:nowrap}
+.hl-mark::before{content:"";position:absolute;z-index:-1;left:-.06em;right:-.06em;bottom:.08em;height:.34em;border-radius:.1em;background:rgba(129,231,109,.62);transform-origin:left}
+@keyframes mark{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){
+  .m-on .hl-mark::before{animation:mark 1s cubic-bezier(.65,0,.35,1) 1.05s both}
+  .m-on .pf-hero .glow--g{animation:glowIn 2.4s ease .4s both,pfBreathe 9s ease-in-out 3s infinite alternate}
+  .m-on .pf-hero .glow--m{animation:glowIn 2.4s ease .4s both}
+}
+@keyframes pfBreathe{from{opacity:1;transform:translateX(0)}to{opacity:.55;transform:translateX(-6%)}}
+@media (max-width:640px){.pf-hero .glow--g{background:radial-gradient(ellipse 70% 55% at 92% 40%,rgba(129,231,109,.28),rgba(129,231,109,0) 100%)}.pf-hero .glow--m{display:none}}
+.page-hero--pf h1{font-size:clamp(32px,4.3vw,62px);line-height:1.04}
+.page-hero--pf .page-hero__text{max-width:none}
+.pf{padding-block:clamp(24px,4vw,48px) clamp(56px,7vw,96px)}
+.pf__grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.co{grid-column:span 2;display:flex;flex-direction:column;border-radius:24px;background:var(--white);border:1px solid var(--line);overflow:hidden;transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.co:hover{border-color:var(--line-strong);box-shadow:0 24px 40px -32px rgba(17,46,35,.45)}
+.co__logo{position:relative;display:flex;align-items:center;gap:12px;height:112px;padding:0 28px;border-bottom:1px solid var(--line)}
+.co__logo img{display:block;width:auto;height:auto;max-width:168px;max-height:40px;object-fit:contain;object-position:left center}
+.co__logo img.is-tall{max-height:56px}
+.co__logo img.is-mark{max-height:40px;max-width:40px}
+.co__word{font-size:24px;font-weight:700;letter-spacing:-.03em;color:var(--ink)}
+.co__tag{margin-left:auto;padding:6px 12px;border-radius:999px;background:var(--mist);font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.co__body{display:flex;flex-direction:column;gap:20px;flex:1;padding:24px 28px 26px}
+.co__desc{font-size:19px;line-height:1.4;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.co__meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-top:auto;font-size:15px;color:var(--muted)}
+.co__meta b{font-weight:600;color:var(--ink)}
+.co__meta a{font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.co__meta a:hover{text-decoration:underline}
+.co--half{grid-column:span 3}
+.co--quote{grid-column:1 / -1;background:var(--mist);border-color:transparent}
+.co--quote .co__logo{border-bottom-color:rgba(17,46,35,.08)}
+.co__quote{margin:0;font-size:17px;line-height:1.6;color:var(--body)}
+@media (min-width:1001px){
+  .co--quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-rows:auto auto 1fr;column-gap:20px}
+  .co--quote .co__body{display:contents}
+  .co--quote .co__logo{grid-column:1;grid-row:1;border-bottom:0;height:auto;padding:32px 28px 0}
+  .co--quote .co__desc{grid-column:1;grid-row:2;padding:24px 28px 0}
+  .co--quote .co__meta{grid-column:1;grid-row:3;align-self:end;padding:24px 28px 28px;margin-top:0}
+  .co--quote .co__quote{grid-column:2;grid-row:1 / 4;align-self:center;padding:32px 40px 32px 28px;font-size:18px;color:var(--ink)}
+}
+.pf__note{margin-top:28px;font-size:15px;color:var(--muted)}
+@media (max-width:1000px){.pf__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.co,.co--half{grid-column:auto}.co--quote{grid-column:1 / -1}}
+@media (max-width:640px){.pf__grid{grid-template-columns:minmax(0,1fr);gap:16px}.co__logo{height:96px;padding:0 22px}.co__body{padding:20px 22px 22px}.co__desc{font-size:18px}}
