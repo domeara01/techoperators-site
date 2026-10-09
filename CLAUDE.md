@@ -32,7 +32,6 @@ All page sources are in `redesign/src/`. The build fills `{{HOME}}`, `{{DIR}}`, 
 | `/` home | `home.tpl.html` (copy, styles and script all in one file; has its own header and footer) |
 | `/startups` | `startups.body.html`, styles in `startups.css` |
 | `/portfolio` | `portfolio.body.html`, styles in `portfolio.css`, logos in `redesign/img/portfolio/` |
-| `/meitheal-principles` | `meitheal.body.html`, styles in `meitheal.css` |
 | `/apply` founder form | `apply.body.html` (form rules below) |
 | `/membership` membership form | `membership.body.html` (includes the "Next cohort intake" notice) |
 | `/thanks` | `thanks.body.html` |
@@ -43,10 +42,11 @@ All page sources are in `redesign/src/`. The build fills `{{HOME}}`, `{{DIR}}`, 
 | `/edit` member editor | `editor/edit.html`. Do not touch |
 
 Page titles and search descriptions for the redesigned pages are in the `PAGES` list at the top of `redesign/build_redesign.py`.
-Do not edit the old copies in `website/` (`index.html`, `startups.html`, `apply.html`, `membership.html`, `thanks.html`, `meitheal-principles.html`, and the policy and 404 pages): the build overwrites them with the redesigned pages. Files in `website/` that are used as they are: `_redirects`, `_headers`, `robots.txt`, `llms.txt` (a summary for AI tools; update its links if a page is added, renamed or removed).
+Do not edit the old copies in `website/` (`index.html`, `startups.html`, `apply.html`, `membership.html`, `thanks.html`, and the policy and 404 pages): the build overwrites them with the redesigned pages. Files in `website/` that are used as they are: `_redirects`, `_headers`, `robots.txt`, `llms.txt` (a summary for AI tools; update its links if a page is added, renamed or removed).
 Check with Dave if a build ever shows the old green-and-white Squarespace-style look on a policy or 404 page; the redesigned versions of those were being added on 8 Oct 2026.
 
 Where common content lives:
+- **The Meitheal**: there is no separate Meitheal page any more (retired 9 Oct 2026). It lives in the Meitheal section of For startups (`startups.body.html`, banner `id="meitheal"` plus the explainer and four principles below it). `{{PRINCIPLES}}` links there, and `/meitheal` and `/meitheal-principles` redirect there.
 - **Main navigation and footer links**: in three places. `_header.html` and `_footer.html` (every page except home and the member directory), the `<header>` and `<footer>` inside `home.tpl.html`, and the `<header>` (plus a short footer with only Home and LinkedIn) inside `members.tpl.html`. A nav change means editing all three headers.
 - **Home page company ticker** ("Members have built and scaled at"): `home.tpl.html`, the `marquee__set` line. The list appears twice (the second copy, `aria-hidden`, makes the loop seamless); keep both identical. The same company names are repeated in the "Why Tech Operators?" paragraph.
 - **Board tiles and roles**: `home.tpl.html`, "Meet the board" section. Each tile links to `{{DIR}}#<member-id>` (the member's id in the directory), with a photo in `redesign/img/` (`m-1.jpg`, `m-jc.jpg`, `m-fionnuala.jpg`, `m-niall.jpg`, 600x600). Roles are short: "Function. Previously X".
@@ -59,10 +59,10 @@ Where common content lives:
 - Font: Plus Jakarta Sans (weights 400 to 700), loaded from Google Fonts. Don't add fonts.
 - Tone of voice: plain, specific and warm; short sentences; sentence case for headings and buttons; British/Irish spelling ("programme", "per cent"); concrete facts ("No fees, no strings attached", "Members invest their own money") rather than hype. No exclamation marks, no buzzwords, no superlatives the members wouldn't say themselves. Section headings often end with a full stop ("Meet the board.").
 - Big headlines are split into lines, each wrapped as `<span class="mask"><span>line</span></span>`, so they slide up one line at a time. Keep lines short and similar in length, at most four lines.
-- `<span class="hl-mark">words</span>` draws the green highlighter under the last words of a headline. Use it once per page, on two or three words. It only works on pages whose CSS defines it (startups, portfolio, apply, membership, thanks, members, and the policy and 404 pages via `legal.css`; not home or Meitheal).
+- `<span class="hl-mark">words</span>` draws the green highlighter under the last words of a headline. Use it once per page, on two or three words. It only works on pages whose CSS defines it (startups, portfolio, apply, membership, thanks, members, and the policy and 404 pages via `legal.css`; and home).
 - Glows (`<span class="glow glow--g">`/`glow--m`, `aria-hidden`) are decorative; reuse the existing ones, don't add more.
 - Scroll fade-in: add class `rv` to new blocks, like their neighbours.
-- The `<style>` and `<script>` in `home.tpl.html` are also used by For startups, Portfolio, Meitheal, the policy pages and 404. A style change in `home.tpl.html` changes all of them; put page-only styles in that page's `.css` file.
+- The `<style>` and `<script>` in `home.tpl.html` are also used by For startups, Portfolio, the policy pages and 404. A style change in `home.tpl.html` changes all of them; put page-only styles in that page's `.css` file.
 
 ## Hard rules (never)
 - Never change form names (`founder-application`, `membership-application`), field `name=` values, the hidden `form-name` input, the honeypot `company_fax`, or `data-netlify`/`action` without also updating `netlify/functions/submission-created.mts` (which sends applications to Attio). A new field also needs a label in its `LABELS` list. If a form change is asked for, check with Dave.
@@ -71,7 +71,7 @@ Where common content lives:
 - Don't remove the `noindex` block in `website/_headers` or the `Disallow` in `website/robots.txt` until told the site is live (cutover).
 - Don't touch `editor/edit.html`, `deploy-redesign.sh`, `netlify.toml`, `snapshot/` or `netlify/functions/` unless Dave asks.
 - Don't delete pages or entries in `website/_redirects` without asking; the redirects keep old Squarespace links working.
-- Don't remove phrases the build checks for: "Why Tech Operators" (home), "Three ways we help" (startups), "have invested in" (portfolio), "Our Meitheal principles" (meitheal), "Find an operator" (members). If a wording change needs to, check with Dave.
+- Don't remove phrases the build checks for: "Why Tech Operators" (home), "Three ways we help" (startups), "have invested in" (portfolio), `id="meitheal"` (the Meitheal section on startups), "Find an operator" (members). If a wording change needs to, check with Dave.
 - In `home.tpl.html`, the build swaps `href="#how">For startups` and `Members ↗` for live links. Don't reword those two nav items there without checking with Dave.
 - Keep accessibility: every meaningful image has alt text (decorative ones `alt=""`), one `<h1>` per page, headings in order (h1, h2, h3), links say where they go, and new motion must sit inside the existing `prefers-reduced-motion` rules.
 

@@ -13,7 +13,7 @@ Pages
   home, members      one template each: src/home.tpl.html, src/members.tpl.html
   apply, membership, thanks
                      src/_shell.css + src/_header.html + src/<page>.body.html + src/_footer.html + src/_shell.js
-  startups, meitheal, portfolio, policy, privacy, notfound (HOME_STYLED)
+  startups, portfolio, policy, privacy, notfound (HOME_STYLED)
                      home page style + src/_pages.css (+ src/legal.css for policy, privacy, notfound) + src/<page>.css,
                      src/_header.html + src/<page>.body.html + src/_footer.html + home page script
 
@@ -46,8 +46,6 @@ PAGES = {  # page -> (site title, review-copy title, description)
                  "How Tech Operators' network of experienced advisors, investors and industry leaders can support your startup's growth. No fees, no strings attached."),
     "portfolio": ("Portfolio | Tech Operators", "Tech Operators Portfolio",
                   "Some of the startups and founders that Tech Operators members have invested in."),
-    "meitheal": ("The Meitheal | Tech Operators", "Tech Operators Meitheal",
-                 "A Meitheal is a curated group of Tech Operators members who come together to help a founder tackle one specific challenge in their business."),
     "policy": ("Operating policy | Tech Operators", "Tech Operators Operating policy",
                "The Tech Operators operating policy: our guiding principles, the outcomes we want and the code of conduct between members."),
     "privacy": ("Privacy policy | Tech Operators", "Tech Operators Privacy policy",
@@ -56,20 +54,20 @@ PAGES = {  # page -> (site title, review-copy title, description)
                  "This page isn't here. It may have moved when the Tech Operators site was rebuilt."),
 }
 # Pages built on the home page's full style and script (they reuse its section designs) with the shared header and footer
-HOME_STYLED = ("startups", "meitheal", "portfolio", "policy", "privacy", "notfound")
+HOME_STYLED = ("startups", "portfolio", "policy", "privacy", "notfound")
 # Of those, the text-led legal and utility pages also share src/legal.css (hero glow, contents rail, readable column)
 LEGAL = ("policy", "privacy", "notfound")
 FILES = {"home": "index.html", "members": "members/index.html", "apply": "apply.html", "membership": "membership.html",
-         "thanks": "thanks.html", "startups": "startups.html", "meitheal": "meitheal-principles.html",
+         "thanks": "thanks.html", "startups": "startups.html",
          "portfolio": "portfolio.html", "policy": "operating-policy.html", "privacy": "privacy-policy.html",
          "notfound": "404.html"}
 NOTE = '<span>Design preview · some links are placeholders</span>'
 LINKS = {
     "preview": dict(HOME="index.html", DIR="members.html", APPLY="apply.html", MEMBERSHIP="membership.html",
-                    STARTUPS="startups.html", PORTFOLIO="portfolio.html", POLICY="#top", PRINCIPLES="meitheal-principles.html", PRIVACY="#top", THANKS="thanks.html",
+                    STARTUPS="startups.html", PORTFOLIO="portfolio.html", POLICY="#top", PRINCIPLES="startups.html#meitheal", PRIVACY="#top", THANKS="thanks.html",
                     EXT="", NOTE=NOTE, PREVIEW="true"),
     "prod": dict(HOME="/", DIR="/members/", APPLY="/apply", MEMBERSHIP="/membership", STARTUPS="/startups", PORTFOLIO="/portfolio",
-                 POLICY="/operating-policy", PRINCIPLES="/meitheal-principles", PRIVACY="/privacy-policy",
+                 POLICY="/operating-policy", PRINCIPLES="/startups#meitheal", PRIVACY="/privacy-policy",
                  THANKS="/thanks", EXT="", NOTE="", PREVIEW="false"),
 }
 

@@ -14,4 +14,5 @@
 /startups-1                 /startups               301
 /operating-policy-1         /operating-policy       301
 /cart                       /                       301
-/meitheal                   /meitheal-principles    301
+/meitheal                   /startups#meitheal      301
+/meitheal-principles        /startups#meitheal      301!

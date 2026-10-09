@@ -4,7 +4,7 @@
 #   /                home page                   /members/     member directory
 #   /apply           founder application         /membership   membership application
 #   /edit            member editor (from editor/edit.html, unchanged)
-#   /startups, /portfolio, /meitheal-principles, /operating-policy, /privacy-policy, 404
+#   /startups, /portfolio, /operating-policy, /privacy-policy, 404
 #                    redesigned pages built from redesign/src/
 #   website/         redirects, headers, robots.txt and anything not yet redesigned
 #
@@ -32,7 +32,7 @@ grep -q "Find an operator" "$OUT/members/index.html"   || { echo "Directory page
 grep -q 'name="founder-application"' "$OUT/apply.html" || { echo "Founder form looks wrong, stopping."; exit 1; }
 grep -q 'name="membership-application"' "$OUT/membership.html" || { echo "Membership form looks wrong, stopping."; exit 1; }
 grep -q "Why Tech Operators" "$OUT/index.html"             || { echo "Home page looks wrong, stopping."; exit 1; }
-grep -q "Our Meitheal principles" "$OUT/meitheal-principles.html" || { echo "Meitheal page looks wrong, stopping."; exit 1; }
+grep -q 'id="meitheal"' "$OUT/startups.html"       || { echo "Meitheal section on For startups looks wrong, stopping."; exit 1; }
 grep -q "Three ways we help" "$OUT/startups.html"     || { echo "For startups page looks wrong, stopping."; exit 1; }
 grep -q "have invested in" "$OUT/portfolio.html"       || { echo "Portfolio page looks wrong, stopping."; exit 1; }
 
