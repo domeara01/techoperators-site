@@ -11,7 +11,7 @@
 const ATTIO = "https://api.attio.com/v2";
 
 const LABELS: Record<string, string> = {
-  first_name: "First name", last_name: "Last name", email: "Email", startup: "Startup",
+  first_name: "First name", last_name: "Last name", email: "Email", help_type: "How we can help", startup: "Startup",
   website: "Website", under_represented: "Under-represented founder", deck_url: "Deck",
   stage: "Investment stage", linkedin: "LinkedIn", motivation: "What prompted them to apply",
   angel_before: "Angel invested before", hban_member: "HBAN member",

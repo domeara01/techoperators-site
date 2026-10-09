@@ -2,7 +2,7 @@
   <div class="page">
     <section class="aside" aria-labelledby="h1">
       <div class="eyebrow"><span class="dot" aria-hidden="true"></span>For founders</div>
-      <h1 id="h1"><span class="mask"><span>Let's work</span></span><span class="mask"><span><span class="hl-mark">together.</span></span></span></h1>
+      <h1 id="h1"><span class="mask"><span>Let's work</span></span><span class="mask"><span><span class="hl-mark">together</span></span></span></h1>
       <p class="lede">Tech Operators is a network of experienced executives and founders who've helped build and scale companies like Google, Stripe and Intercom. We help ambitious Irish startups grow internationally through advice, connections and investment.</p>
       <p>There's no fee and no catch. Tell us a bit about what you're building and where you're looking for help, and we'll be in touch about the best way to work together.</p>
       <h2>That could be</h2>
@@ -26,6 +26,13 @@
           <div class="field"><label for="f-last">Last name</label><input type="text" id="f-last" name="last_name" autocomplete="family-name"></div>
         </div>
         <div class="field"><label for="f-email">Email <span class="req">(required)</span></label><input type="email" id="f-email" name="email" required autocomplete="email"></div>
+        <fieldset class="field"><legend>Which one of the following best describes how we can help you?</legend>
+          <div class="checks">
+            <label><input type="radio" name="help_type" value="Raising, would like to pitch"> I'm raising and would like to pitch to Tech Operators members</label>
+            <label><input type="radio" name="help_type" value="One-off consultation"> I have a problem and would like a one-off consultation</label>
+            <label><input type="radio" name="help_type" value="Meitheal session"> I'd like to be considered for a Meitheal session</label>
+            <label><input type="radio" name="help_type" value="12-month mentor programme"> I'd like to be considered for the 12-month mentor programme</label>
+          </div></fieldset>
         <div class="field"><label for="f-startup">Your startup</label><span class="hint" id="f-startup-h">What you're building and where you'd like help.</span><textarea id="f-startup" name="startup" aria-describedby="f-startup-h"></textarea></div>
         <div class="two">
           <div class="field"><label for="f-web">Website</label><input type="text" id="f-web" name="website" placeholder="https://" inputmode="url"></div>
