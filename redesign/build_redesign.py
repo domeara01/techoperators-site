@@ -34,7 +34,7 @@ FONT = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
 
 PAGES = {  # page -> (site title, review-copy title, description)
     "home": ("Tech Operators | Advice, connections and investment for Irish startups", "Tech Operators",
-             "Tech Operators is a network of experienced industry executives and founders who help early-stage founders scale internationally, through expert advice, warm introductions and angel investment."),
+             "Tech Operators is a network of experienced technology executives and founders who help early-stage founders scale internationally, through expert advice, warm introductions and angel investment."),
     "members": ("Members | Tech Operators", "Tech Operators Members",
                 "Find an operator who has done it before. The Tech Operators member directory: experienced executives and founders who advise, connect and invest in Irish startups."),
     "apply": ("Apply as a founder | Tech Operators", "Tech Operators Founder Application",
