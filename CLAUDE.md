@@ -12,15 +12,15 @@ Read this before any change in this repository. For an edit request, also follow
 ## Workflow (every change)
 1. Start from an up-to-date `main` and create a new branch, e.g. `edit/portfolio-add-acme`. Never commit to `main` directly.
 2. Edit only the source files listed in the page map below.
-3. Build locally to check: `DEPLOY=0 OUT=/tmp/to-check ./deploy-redesign.sh`
-   - `DEPLOY=0` is essential. Without it the script deploys straight to the live Netlify site. Never run it without `DEPLOY=0`.
+3. Build locally to check: `OUT=/tmp/to-check ./deploy-redesign.sh`
+   - The script only builds; it never deploys. Netlify runs the same script on every push (see `netlify.toml`) and publishes the result.
    - `OUT` is deleted and recreated, so always point it at a throwaway folder under `/tmp`, never at the repository or a real folder.
    - The script fetches the member directory from Google. With no network it prints "Could not fetch the live directory" and uses `redesign/snapshot.last.js`. That is fine.
-   - A successful build ends with "Built into /tmp/to-check. Not deployed (DEPLOY=0)." Any "looks wrong, stopping" message means a page lost a phrase the script checks for (see Hard rules).
+   - A successful build ends with "Built into /tmp/to-check." Any "looks wrong, stopping" message means a page lost a phrase the script checks for (see Hard rules).
    - The build rewrites `redesign/snapshot.last.js` when it gets live data. Don't commit that file as part of a website edit: `git checkout -- redesign/snapshot.last.js` before committing.
    - Don't run `python3 redesign/build_redesign.py preview`; it writes stray HTML files into `redesign/`.
 4. Commit with a short plain message, push the branch. Netlify builds a deploy preview for the branch (or its pull request). Give the person the preview link and tell them which page to look at.
-   - Check with Dave: `netlify.toml` has an empty build command and publishes `dist/`, which is not in the repo. If a preview comes up blank or "Page not found", stop and tell Dave rather than changing `netlify.toml`.
+   - Netlify builds every push by running `deploy-redesign.sh` and publishing the `dist/` folder it creates (`dist/` is not in the repo). If a preview fails to build, comes up blank or shows "Page not found", stop and tell Dave rather than changing `netlify.toml` or the script.
 5. Publish (merge to `main`) only after the person explicitly says to publish. Every merge to `main` is a production deploy, and each production deploy uses Netlify credits. Where sensible, collect several small changes on one branch and publish them together. Mention this if someone asks for a series of tiny changes.
 6. After publishing, tell them it is live and delete the branch.
 

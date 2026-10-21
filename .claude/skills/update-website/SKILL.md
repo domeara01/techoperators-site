@@ -35,11 +35,11 @@ git checkout -b edit/<short-description>
 
 ## 4. Build and check
 ```
-DEPLOY=0 OUT=/tmp/to-check ./deploy-redesign.sh
+OUT=/tmp/to-check ./deploy-redesign.sh
 ```
-- Never run the script without `DEPLOY=0` (that deploys straight to the live site). Never set `OUT` to anything but a throwaway `/tmp` folder (it is wiped).
+- The script only builds; it never deploys. Never set `OUT` to anything but a throwaway `/tmp` folder (it is wiped).
 - "Could not fetch the live directory ... Using the last good copy" is fine.
-- Success ends with "Built into /tmp/to-check. Not deployed (DEPLOY=0)."
+- Success ends with "Built into /tmp/to-check."
 - If it stops ("looks wrong, stopping" or "Unfilled placeholders"), fix your own change or undo it. Don't edit the script's checks. If you can't fix it, tell the person plainly and check with Dave.
 - Look at the built page in `/tmp/to-check` (e.g. `grep` for the new text) to confirm the change landed and nothing nearby was lost.
 - Throw away build side effects: `git checkout -- redesign/snapshot.last.js` and make sure `git status` only shows the files you meant to change.
