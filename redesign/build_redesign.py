@@ -13,8 +13,8 @@ Pages
   home, members      one template each: src/home.tpl.html, src/members.tpl.html
   apply, membership, thanks
                      src/_shell.css + src/_header.html + src/<page>.body.html + src/_footer.html + src/_shell.js
-  startups, portfolio, policy, privacy, notfound (HOME_STYLED)
-                     home page style + src/_pages.css (+ src/legal.css for policy, privacy, notfound) + src/<page>.css,
+  startups, portfolio, policy, terms, privacy, notfound (HOME_STYLED)
+                     home page style + src/_pages.css (+ src/legal.css for policy, terms, privacy, notfound) + src/<page>.css,
                      src/_header.html + src/<page>.body.html + src/_footer.html + home page script
 
 Member data is embedded from the directory snapshot (window.__DIRECTORY_SNAPSHOT in snapshot.js).
@@ -48,26 +48,28 @@ PAGES = {  # page -> (site title, review-copy title, description)
                   "Some of the startups and founders that Tech Operators members have invested in."),
     "policy": ("Operating policy | Tech Operators", "Tech Operators Operating policy",
                "The Tech Operators operating policy: our guiding principles, the outcomes we want and the code of conduct between members."),
+    "terms": ("Terms and conditions | Tech Operators", "Tech Operators Terms and conditions",
+              "The Tech Operators terms and conditions, including that nothing said by Tech Operators or its members is financial, legal or other professional advice."),
     "privacy": ("Privacy policy | Tech Operators", "Tech Operators Privacy policy",
                 "What personal information Tech Operators collects through techoperators.ie and how we use it."),
     "notfound": ("Page not found | Tech Operators", "Tech Operators Page not found",
                  "This page isn't here. It may have moved when the Tech Operators site was rebuilt."),
 }
 # Pages built on the home page's full style and script (they reuse its section designs) with the shared header and footer
-HOME_STYLED = ("startups", "portfolio", "policy", "privacy", "notfound")
+HOME_STYLED = ("startups", "portfolio", "policy", "terms", "privacy", "notfound")
 # Of those, the text-led legal and utility pages also share src/legal.css (hero glow, contents rail, readable column)
-LEGAL = ("policy", "privacy", "notfound")
+LEGAL = ("policy", "terms", "privacy", "notfound")
 FILES = {"home": "index.html", "members": "members/index.html", "apply": "apply.html", "membership": "membership.html",
          "thanks": "thanks.html", "startups": "startups.html",
-         "portfolio": "portfolio.html", "policy": "operating-policy.html", "privacy": "privacy-policy.html",
+         "portfolio": "portfolio.html", "policy": "operating-policy.html", "terms": "terms-and-conditions.html", "privacy": "privacy-policy.html",
          "notfound": "404.html"}
 NOTE = '<span>Design preview · some links are placeholders</span>'
 LINKS = {
     "preview": dict(HOME="index.html", DIR="members.html", APPLY="apply.html", MEMBERSHIP="membership.html",
-                    STARTUPS="startups.html", PORTFOLIO="portfolio.html", POLICY="#top", PRINCIPLES="startups.html#meitheal", PRIVACY="#top", THANKS="thanks.html",
+                    STARTUPS="startups.html", PORTFOLIO="portfolio.html", POLICY="#top", TERMS="#top", PRINCIPLES="startups.html#meitheal", PRIVACY="#top", THANKS="thanks.html",
                     EXT="", NOTE=NOTE, PREVIEW="true"),
     "prod": dict(HOME="/", DIR="/members/", APPLY="/apply", MEMBERSHIP="/membership", STARTUPS="/startups", PORTFOLIO="/portfolio",
-                 POLICY="/operating-policy", PRINCIPLES="/startups#meitheal", PRIVACY="/privacy-policy",
+                 POLICY="/operating-policy", TERMS="/terms-and-conditions", PRINCIPLES="/startups#meitheal", PRIVACY="/privacy-policy",
                  THANKS="/thanks", EXT="", NOTE="", PREVIEW="false"),
 }
 
@@ -163,7 +165,7 @@ def main():
         out = Path(sys.argv[2]); out.mkdir(parents=True, exist_ok=True)
         urls = json.loads(Path(sys.argv[3]).read_text())
         links = dict(HOME=urls["home"], DIR=urls["members"], APPLY=urls["apply"], MEMBERSHIP=urls["membership"],
-                     STARTUPS=urls["home"] + "#how", PORTFOLIO="#top", POLICY="#top", PRINCIPLES="#top", PRIVACY="#top", THANKS="#top",
+                     STARTUPS=urls["home"] + "#how", PORTFOLIO="#top", POLICY="#top", TERMS="#top", PRINCIPLES="#top", PRIVACY="#top", THANKS="#top",
                      EXT=' target="_blank" rel="noopener"', NOTE=NOTE, PREVIEW="true")
         for page in ("home", "members", "apply", "membership"):
             (out / f"{page}.html").write_text(render(page, links, 1), encoding="utf-8")
